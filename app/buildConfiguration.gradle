@@ -1,0 +1,90 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
+def getCurrentBuildType() {
+
+    String tskReqStr = getGradle().getStartParameter().getTaskRequests().toString()
+
+    if (tskReqStr.contains("Release")) {
+        println "getCurrentBuildType release"
+        return "release"
+    } else if (tskReqStr.contains("Debug")) {
+        println "getCurrentBuildType debug"
+        return "debug"
+    }
+    return ""
+}
+
+def getCurrentFlavor() {
+
+    String tskReqStr = getGradle().getStartParameter().getTaskRequests().toString()
+
+    Pattern pattern
+
+    if (tskReqStr.contains("assemble"))
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    else
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+
+    Matcher matcher = pattern.matcher(tskReqStr)
+
+    if (matcher.find())
+        return matcher.group(1).toLowerCase()
+    else {
+        return ""
+    }
+}
+
+ext {
+
+    setupConfiguration = { variant ->
+        def flavorName = variant.productFlavors[0].name
+        def flavourDirectoryPath = 'app/src/' + flavorName + '/config/'
+        def buildTypeName = variant.buildType.name
+
+        if (getCurrentFlavor() == flavorName && buildTypeName == getCurrentBuildType()) {
+            def configFilePath = flavourDirectoryPath + 'config.properties'
+            logger.lifecycle('setupConfiguration => configFilePath: {}', rootProject.file(configFilePath).absolutePath)
+            if (rootProject.file(configFilePath).exists()) {
+                def properties = new Properties()
+                properties.load(new FileInputStream(rootProject.file(configFilePath)))
+
+                if (buildTypeName == 'release') {
+                    variant.buildConfigField('String', 'SETUP_ADMIN_PASSWORD', '"y6rh`TeUNXk:,2&g"')
+
+                    variant.outputs.each { output ->
+                        def name = output.name.replace("-release", "").replace("_", "-")
+                        def outputFilePath = name + "-" + variant.versionName + ".apk"
+                        def outputFile = new File(outputFilePath, name)
+                        logger.lifecycle('setupConfiguration => outputFilePath: {}', outputFile.absolutePath)
+                        output.outputFileName = outputFile
+                    }
+                } else {
+                    variant.buildConfigField('String', 'SETUP_ADMIN_PASSWORD', '""')
+                }
+            } else {
+
+            }
+        }
+    }
+
+    setupSigningConfiguration = { signingConfig ->
+        def flavorName = signingConfig.name
+        def flavourDirectoryConfigPath = 'app/src/' + flavorName + '/config/'
+        def flavourDirectoryKeyStorePath = 'app/src/' + flavorName + '/keystore/'
+        def configFilePath = flavourDirectoryConfigPath + 'config.properties'
+        logger.lifecycle('setupSigningConfiguration => configFilePath: {}', rootProject.file(configFilePath).absolutePath)
+        if (rootProject.file(configFilePath).exists()) {
+            def properties = new Properties()
+            properties.load(new FileInputStream(rootProject.file(configFilePath)))
+
+            logger.lifecycle('setupSigningConfiguration => storePassword: {}', properties.get('releaseKeystorePassword'))
+
+            android.signingConfigs.getByName(flavorName).storeFile = rootProject.file(flavourDirectoryKeyStorePath + 'release.jks')
+            android.signingConfigs.getByName(flavorName).storePassword = properties.get('releaseKeystorePassword')
+            android.signingConfigs.getByName(flavorName).keyAlias = properties.get('releaseKeystoreAlias')
+            android.signingConfigs.getByName(flavorName).keyPassword = properties.get('releaseKeystoreAliasPassword')
+
+        }
+    }
+}

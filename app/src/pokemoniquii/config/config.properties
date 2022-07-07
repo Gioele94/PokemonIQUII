@@ -1,0 +1,3 @@
+releaseKeystorePassword=84m7B^u281
+releaseKeystoreAlias=IQUII
+releaseKeystoreAliasPassword=84m7B^u281
