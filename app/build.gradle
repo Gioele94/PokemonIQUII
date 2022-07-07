@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
 }
 
 apply from: 'buildConfiguration.gradle'
@@ -73,6 +75,13 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.jakewharton.timber:timber:4.7.1'
     implementation 'com.facebook.stetho:stetho-okhttp3:1.5.1'
+
+    //Firebase Library
+    implementation 'com.google.firebase:firebase-core:21.0.0'
+    implementation 'com.google.firebase:firebase-messaging:23.0.6'
+    implementation 'com.google.firebase:firebase-analytics:21.0.0'
+    implementation 'com.google.firebase:firebase-appindexing:20.0.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.2.11'
 
 
     testImplementation 'junit:junit:4.13.2'

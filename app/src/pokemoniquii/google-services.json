@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "106043916243",
+    "project_id": "pokemoniquii",
+    "storage_bucket": "pokemoniquii.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106043916243:android:46944dc282023672453926",
+        "android_client_info": {
+          "package_name": "com.pokemoniquii"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106043916243-2ttqlqt5ef97jecq1b7fga78rqrbc0j0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pokemoniquii",
+            "certificate_hash": "89d70686e4862f2f47999056c272694e1eb1f2f9"
+          }
+        },
+        {
+          "client_id": "106043916243-6djpj4tn8e4usoe16vfre6dq1rmjbl6u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCawfBFD0BIR1xhQOFlaRmmk18LppYx1XQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106043916243-6djpj4tn8e4usoe16vfre6dq1rmjbl6u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

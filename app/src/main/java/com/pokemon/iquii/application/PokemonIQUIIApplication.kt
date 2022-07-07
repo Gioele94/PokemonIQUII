@@ -16,6 +16,7 @@ import android.content.Context
 import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
+import com.google.firebase.analytics.FirebaseAnalytics
 import timber.log.Timber
 
 open class PokemonIQUIIApplication : MultiDexApplication() {
@@ -48,6 +49,8 @@ open class PokemonIQUIIApplication : MultiDexApplication() {
 
     override fun onCreate() {
         super.onCreate()
+
+        FirebaseAnalytics.getInstance(this);
 
         if (BuildConfig.DEBUG || BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
