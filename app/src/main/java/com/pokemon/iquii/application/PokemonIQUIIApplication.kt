@@ -17,6 +17,9 @@ import androidx.multidex.BuildConfig
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.google.firebase.analytics.FirebaseAnalytics
+import com.pokemon.iquii.components.settings.Settings
+import com.pokemoniquiiSdk.PokemonIQUIISdkAPI
+import com.pokemoniquiiSdk.PokemonIQUIISdkEnvironment
 import timber.log.Timber
 
 open class PokemonIQUIIApplication : MultiDexApplication() {
@@ -24,6 +27,7 @@ open class PokemonIQUIIApplication : MultiDexApplication() {
     companion object {
 
         lateinit var instance: PokemonIQUIIApplication
+        var settings: Settings? = null
 
         operator fun get(activity: Activity): PokemonIQUIIApplication {
             return activity.application as PokemonIQUIIApplication
@@ -50,13 +54,33 @@ open class PokemonIQUIIApplication : MultiDexApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        settings = Settings(this)
         FirebaseAnalytics.getInstance(this);
 
         if (BuildConfig.DEBUG || BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }
 
+        settings?.checkPokemonEnvironment()
+        setupPokemonSdkApi(false)
     }
+
+    fun setupPokemonSdkApi(reset: Boolean) {
+
+        val configuration: PokemonIQUIISdkAPI.Configuration.Builder = PokemonIQUIISdkAPI.Configuration.Builder()
+            .port(null)
+            .apiVersion(2)
+            .appName("pokemon")
+            .environment(PokemonIQUIISdkEnvironment.Environment.PRODUCTION)
+            .host("pokeapi.co")
+            .httpsEnabled(true)
+
+       PokemonIQUIISdkAPI.init(this, configuration.build(), reset)
+        if (reset) {
+            // clear settings
+        }
+    }
+
 
     override fun onTerminate() {
         super.onTerminate()

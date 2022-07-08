@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "PokemonIQUII"
 include ':app'
+include ':pokemoniquiiSdk'
+include ':pokemonIQUIISecurityPreferences'
