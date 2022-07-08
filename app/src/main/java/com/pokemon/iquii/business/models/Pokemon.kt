@@ -2,19 +2,19 @@ package com.pokemon.iquii.business.models
 
 open class Pokemon {
 
-    val baseExperience: Int = 0
-    val isDefault = false
-    val locationAreaEncounters: String = ""
-    val abilities: List<PokemonAbility> = emptyList()
-    val forms: List<PokemonCommonObject> = emptyList()
-    val height: Int = 0
-    val weight: Int = 0
-    val id: Int = 0
-    val name: String = ""
-    val order: Int = 0
-    val moves: List<PokemonMove> = emptyList()
-    val species: List<PokemonCommonObject> = emptyList()
-    val sprites: List<PokemonSpriteDTO> = emptyList()
-    val stats: List<PokemonStatImpl> = emptyList()
-    val types: List<PokemonTypeImpl> = emptyList()
+    var baseExperience: Int = 0
+    var isDefault = false
+    var locationAreaEncounters: String = ""
+    var abilities: List<PokemonAbility> = emptyList()
+    var forms: List<PokemonCommonObject> = emptyList()
+    var height: Int = 0
+    var weight: Int = 0
+    var id: Int = 0
+    var name: String = ""
+    var order: Int = 0
+    var moves: List<PokemonMove> = emptyList()
+    var species: PokemonCommonObject = PokemonCommonObject()
+    var sprites: PokemonSprite = PokemonSprite()
+    var stats: List<PokemonStatImpl> = emptyList()
+    var types: List<PokemonTypeImpl> = emptyList()
 }

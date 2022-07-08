@@ -2,17 +2,17 @@ package com.pokemon.iquii.business.models
 
 open class PokemonCommonSprite {
 
-    val backDefault: String? = null
-    val backFemale: String? = null
-    val backShiny: String? = null
-    val backShinyFemale: String? = null
-    val frontDefault: String? = null
-    val frontFemale: String? = null
-    val frontShiny: String? = null
-    val frontShinyFemale: String? = null
-    val backShinyTransparent: String? = null
-    val backTransparent: String? = null
-    val frontShinyTransparent: String? = null
-    val frontTransparent: String? = null
+    var backDefault: String? = null
+    var backFemale: String? = null
+    var backShiny: String? = null
+    var backShinyFemale: String? = null
+    var frontDefault: String? = null
+    var frontFemale: String? = null
+    var frontShiny: String? = null
+    var frontShinyFemale: String? = null
+    var backShinyTransparent: String? = null
+    var backTransparent: String? = null
+    var frontShinyTransparent: String? = null
+    var frontTransparent: String? = null
 
 }

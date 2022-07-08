@@ -1,10 +1,10 @@
 package com.pokemon.iquii.business.models.generation
 
-import com.pokemoniquiiSdk.services.pokemoncall.response.models.PokemonCommonSpriteDTO
+import com.pokemon.iquii.business.models.PokemonCommonSprite
 
 class PokemonIGeneration : PokemonCommonGeneration() {
 
-    val redBlue: PokemonCommonSpriteDTO = PokemonCommonSpriteDTO()
-    val yellow: PokemonCommonSpriteDTO = PokemonCommonSpriteDTO()
+    var redBlue: PokemonCommonSprite = PokemonCommonSprite()
+    var yellow: PokemonCommonSprite = PokemonCommonSprite()
 
 }

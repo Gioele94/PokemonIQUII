@@ -1,9 +1,9 @@
 package com.pokemon.iquii.business.models.generation
 
-import com.pokemoniquiiSdk.services.pokemoncall.response.models.PokemonCommonSpriteDTO
+import com.pokemon.iquii.business.models.PokemonCommonSprite
 
 open class PokemonCommonGeneration {
 
-    val icons: PokemonCommonSpriteDTO? = null
+    var icons: PokemonCommonSprite? = null
 
 }

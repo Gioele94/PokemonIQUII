@@ -2,6 +2,6 @@ package com.pokemon.iquii.business.models
 
 class PokemonTypeImpl {
 
-    val slot: Int = 0
-    val type: PokemonCommonObject = PokemonCommonObject()
+    var slot: Int = 0
+    var type: PokemonCommonObject = PokemonCommonObject()
 }

@@ -1,9 +1,9 @@
 package com.pokemon.iquii.business.models.generation
 
-import com.pokemoniquiiSdk.services.pokemoncall.response.models.PokemonCommonSpriteDTO
+import com.pokemon.iquii.business.models.PokemonCommonSprite
 
 class PokemonVIIGeneration : PokemonCommonGeneration() {
 
-    val ultraSunUltraMoon: PokemonCommonSpriteDTO = PokemonCommonSpriteDTO()
+    var ultraSunUltraMoon: PokemonCommonSprite = PokemonCommonSprite()
 
 }

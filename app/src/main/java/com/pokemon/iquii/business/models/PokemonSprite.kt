@@ -1,32 +1,31 @@
 package com.pokemon.iquii.business.models
 
-import com.pokemoniquiiSdk.services.pokemoncall.response.models.generation.*
+import com.pokemon.iquii.business.models.generation.*
 
-class PokemonSpriteDTO : PokemonCommonSprite() {
+class PokemonSprite : PokemonCommonSprite() {
 
-    val other: PokemonSpriteOther = PokemonSpriteOther()
+    var other: PokemonSpriteOther = PokemonSpriteOther()
 
 }
 
 class PokemonSpriteOther {
 
-    val dreamWorld: PokemonCommonSprite = PokemonCommonSprite()
-    val home: PokemonCommonSprite = PokemonCommonSprite()
-    val officialArtwork: PokemonCommonSprite = PokemonCommonSprite()
-    val versions: PokemonSpriteGenerationDTO = PokemonSpriteGenerationDTO()
+    var dreamWorld: PokemonCommonSprite = PokemonCommonSprite()
+    var home: PokemonCommonSprite = PokemonCommonSprite()
+    var officialArtwork: PokemonCommonSprite = PokemonCommonSprite()
+    var versions: PokemonSpriteGeneration = PokemonSpriteGeneration()
 
 }
 
-class PokemonSpriteGenerationDTO {
+class PokemonSpriteGeneration {
 
-    val generationI: PokemonIGenerationDTO? = null
-    val generationII: PokemonIIGenerationDTO? = null
-    val generationIIII: PokemonIIIGenerationDTO? = null
-    val generationIV: PokemonIVGenerationDTO? = null
-    val generationV: PokemonVGenerationDTO? = null
-    val generationVI: PokemonVIGenerationDTO? = null
-    val generationVII: PokemonVIIGenerationDTO? = null
-    val generationVIII: PokemonVIIGenerationDTO? = null
-
+    var generationI: PokemonIGeneration? = null
+    var generationII: PokemonIIGeneration? = null
+    var generationIII: PokemonIIIGeneration? = null
+    var generationIV: PokemonIVGeneration? = null
+    var generationV: PokemonVGeneration? = null
+    var generationVI: PokemonVIGeneration? = null
+    var generationVII: PokemonVIIGeneration? = null
+    var generationVIII: PokemonVIIIGeneration? = null
 
 }

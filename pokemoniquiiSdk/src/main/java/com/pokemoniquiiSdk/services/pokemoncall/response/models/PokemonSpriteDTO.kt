@@ -32,7 +32,7 @@ class PokemonSpriteGenerationDTO {
     val generationII: PokemonIIGenerationDTO? = null
 
     @SerializedName("generation-iii")
-    val generationIIII: PokemonIIIGenerationDTO? = null
+    val generationIII: PokemonIIIGenerationDTO? = null
 
     @SerializedName("generation-iv")
     val generationIV: PokemonIVGenerationDTO? = null
@@ -47,7 +47,7 @@ class PokemonSpriteGenerationDTO {
     val generationVII: PokemonVIIGenerationDTO? = null
 
     @SerializedName("generation-viii")
-    val generationVIII: PokemonVIIGenerationDTO? = null
+    val generationVIII: PokemonVIIIGenerationDTO? = null
 
 
 }

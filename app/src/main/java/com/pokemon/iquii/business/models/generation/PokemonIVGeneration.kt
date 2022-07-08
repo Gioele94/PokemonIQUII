@@ -1,11 +1,11 @@
 package com.pokemon.iquii.business.models.generation
 
-import com.pokemoniquiiSdk.services.pokemoncall.response.models.PokemonCommonSpriteDTO
+import com.pokemon.iquii.business.models.PokemonCommonSprite
 
 class PokemonIVGeneration : PokemonCommonGeneration() {
 
-    val platinum: PokemonCommonSpriteDTO = PokemonCommonSpriteDTO()
-    val diamondPearl: PokemonCommonSpriteDTO = PokemonCommonSpriteDTO()
-    val heartgoldSoulsilver: PokemonCommonSpriteDTO = PokemonCommonSpriteDTO()
+    var platinum: PokemonCommonSprite = PokemonCommonSprite()
+    var diamondPearl: PokemonCommonSprite = PokemonCommonSprite()
+    var heartgoldSoulsilver: PokemonCommonSprite = PokemonCommonSprite()
 
 }
