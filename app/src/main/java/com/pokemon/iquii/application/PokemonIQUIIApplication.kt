@@ -19,6 +19,7 @@ import androidx.multidex.MultiDexApplication
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.pokemon.iquii.components.settings.Settings
 import com.pokemon.iquii.database.database.DatabaseHelper
+import com.pokemon.iquii.localizer.PokemonIQUIILocalizer
 import com.pokemoniquiiSdk.PokemonIQUIISdkAPI
 import com.pokemoniquiiSdk.PokemonIQUIISdkEnvironment
 import timber.log.Timber
@@ -56,6 +57,23 @@ open class PokemonIQUIIApplication : MultiDexApplication() {
         super.onCreate()
 
         settings = Settings(this)
+        PokemonIQUIILocalizer.setup(object : PokemonIQUIILocalizer.Delegate{
+            override fun get(): PokemonIQUIILocalizer.Strings? {
+                return null
+            }
+
+            override fun getLocale(): String? {
+                return settings?.getLocale()
+            }
+
+            override fun saveLocale(locale: String?) {
+                settings?.setLocale(locale)
+            }
+
+            override fun save(localizedStrings: PokemonIQUIILocalizer.Strings?) {}
+
+        })
+
         FirebaseAnalytics.getInstance(this);
 
         if (BuildConfig.DEBUG || BuildConfig.DEBUG) {

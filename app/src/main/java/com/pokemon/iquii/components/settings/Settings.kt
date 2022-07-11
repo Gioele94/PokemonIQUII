@@ -65,6 +65,19 @@ class Settings(context: Context) : PokemonSettings(context, "pokemon_shared_pref
         setBoolean(Key.USE_SELF_SIGNED_CERTIFICATE, useSelfSigned)
     }
 
+    fun getLocale(): String? {
+        return getString(Key.LOCALE)
+    }
+
+    /**
+     * Set the default locale, if the locale is null set "en-US"
+     *
+     * @param locale locale to set
+     */
+    fun setLocale(locale: String?) {
+        setString(Key.LOCALE, locale)
+    }
+
     fun checkPokemonEnvironment() {
 
         if (getEnvironment() != null) {
@@ -95,6 +108,7 @@ class Settings(context: Context) : PokemonSettings(context, "pokemon_shared_pref
         PORT,
         USE_HTTPS,
         USE_SELF_SIGNED_CERTIFICATE,
+        LOCALE
     }
 
 }
