@@ -18,6 +18,7 @@ import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.pokemon.iquii.components.settings.Settings
+import com.pokemon.iquii.database.database.DatabaseHelper
 import com.pokemoniquiiSdk.PokemonIQUIISdkAPI
 import com.pokemoniquiiSdk.PokemonIQUIISdkEnvironment
 import timber.log.Timber
@@ -62,7 +63,9 @@ open class PokemonIQUIIApplication : MultiDexApplication() {
         }
 
         settings?.checkPokemonEnvironment()
+        DatabaseHelper.init(applicationContext)
         setupPokemonSdkApi(false)
+
     }
 
     fun setupPokemonSdkApi(reset: Boolean) {

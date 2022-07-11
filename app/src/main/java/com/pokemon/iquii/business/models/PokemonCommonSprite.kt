@@ -1,6 +1,8 @@
 package com.pokemon.iquii.business.models
 
-open class PokemonCommonSprite {
+import java.io.Serializable
+
+open class PokemonCommonSprite: Serializable {
 
     var backDefault: String? = null
     var backFemale: String? = null

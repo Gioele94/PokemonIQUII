@@ -1,5 +1,7 @@
 package com.pokemon.iquii.business.models.generation
 
-class PokemonVIIIGeneration : PokemonCommonGeneration() {
+import java.io.Serializable
+
+class PokemonVIIIGeneration : PokemonCommonGeneration(), Serializable {
 
 }

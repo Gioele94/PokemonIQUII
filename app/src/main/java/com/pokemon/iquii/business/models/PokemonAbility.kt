@@ -1,6 +1,8 @@
 package com.pokemon.iquii.business.models
 
-class PokemonAbility {
+import java.io.Serializable
+
+class PokemonAbility: Serializable {
 
     var ability: PokemonCommonObject = PokemonCommonObject()
     var isHidded: Boolean = false

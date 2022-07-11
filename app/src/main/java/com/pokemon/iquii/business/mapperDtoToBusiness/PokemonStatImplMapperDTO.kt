@@ -1,4 +1,4 @@
-package com.pokemon.iquii.business.mappers
+package com.pokemon.iquii.business.mapperDtoToBusiness
 
 import com.pokemon.iquii.business.models.PokemonStatImpl
 import com.pokemoniquiiSdk.services.pokemoncall.response.models.PokemonStatImplDTO

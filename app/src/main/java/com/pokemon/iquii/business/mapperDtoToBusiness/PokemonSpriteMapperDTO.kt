@@ -1,4 +1,4 @@
-package com.pokemon.iquii.business.mappers
+package com.pokemon.iquii.business.mapperDtoToBusiness
 
 import com.pokemon.iquii.business.models.PokemonCommonSprite
 import com.pokemon.iquii.business.models.PokemonSprite

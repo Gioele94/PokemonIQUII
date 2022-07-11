@@ -1,6 +1,8 @@
 package com.pokemon.iquii.business.models
 
-open class Pokemon {
+import java.io.Serializable
+
+open class Pokemon: Serializable {
 
     var baseExperience: Int = 0
     var isDefault = false
@@ -17,4 +19,5 @@ open class Pokemon {
     var sprites: PokemonSprite = PokemonSprite()
     var stats: List<PokemonStatImpl> = emptyList()
     var types: List<PokemonTypeImpl> = emptyList()
+
 }

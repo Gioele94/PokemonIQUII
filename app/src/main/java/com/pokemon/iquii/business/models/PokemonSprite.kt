@@ -1,8 +1,9 @@
 package com.pokemon.iquii.business.models
 
 import com.pokemon.iquii.business.models.generation.*
+import java.io.Serializable
 
-class PokemonSprite : PokemonCommonSprite() {
+class PokemonSprite : PokemonCommonSprite(), Serializable {
 
     var other: PokemonSpriteOther = PokemonSpriteOther()
 

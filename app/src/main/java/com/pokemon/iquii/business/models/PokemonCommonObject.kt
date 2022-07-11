@@ -1,6 +1,8 @@
 package com.pokemon.iquii.business.models
 
-open class PokemonCommonObject {
+import java.io.Serializable
+
+open class PokemonCommonObject: Serializable {
 
     var name: String = ""
     var url: String = ""
