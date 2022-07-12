@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PokemonIQUII</string>
+    <string name="emptyList">No elements into list</string>
+    <string name="recycleView.loadingData">Wait we are loading data</string>
+    <string name="generic.errorNetwork">Something went wrong during the execution of the request.</string>
+    <string name="generic.error">Error</string>
+    <string name="generic.close">Close</string>
+    <string name="generic.no">No</string>
+    <string name="generic.yes">Yes</string>
+    <string name="pokemonTab.pokemons">Pokemons</string>
+    <string name="pokemonTab.favourites">Favourites</string>
 </resources>

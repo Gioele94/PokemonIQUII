@@ -28,5 +28,5 @@ interface PokemonCallServiceDAO {
      * Get the detail of pokemon by the id
      * @param pokemonId the id of pokemon that you want retrive the information
      */
-    fun getPokemonDetail(@NotNull pokemonId: Int): Single<PokemonResponseItem>
+    fun getPokemonDetail(@NotNull pokemonId: String): Single<PokemonResponseItem>
 }

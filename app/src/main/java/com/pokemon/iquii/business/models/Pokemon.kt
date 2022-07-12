@@ -1,5 +1,7 @@
 package com.pokemon.iquii.business.models
 
+import androidx.annotation.NonNull
+import androidx.recyclerview.widget.DiffUtil
 import java.io.Serializable
 
 open class Pokemon: Serializable {
@@ -19,5 +21,27 @@ open class Pokemon: Serializable {
     var sprites: PokemonSprite = PokemonSprite()
     var stats: List<PokemonStatImpl> = emptyList()
     var types: List<PokemonTypeImpl> = emptyList()
+
+    companion object {
+
+        var DIFF_CALLBACK: DiffUtil.ItemCallback<Any> = object : DiffUtil.ItemCallback<Any>() {
+            override fun areItemsTheSame(@NonNull oldItem: Any, @NonNull newItem: Any): Boolean {
+                return (oldItem as Pokemon).id == (newItem as Pokemon).id
+            }
+
+            override fun areContentsTheSame(@NonNull oldItem: Any, @NonNull newItem: Any): Boolean {
+                return oldItem as Pokemon == newItem as Pokemon
+            }
+
+            override fun getChangePayload(oldItem: Any, newItem: Any): Any? {
+                oldItem as Pokemon
+                newItem as Pokemon
+                if (newItem == oldItem) {
+                    return newItem
+                }
+                return oldItem
+            }
+        }
+    }
 
 }

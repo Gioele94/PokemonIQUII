@@ -24,9 +24,26 @@ fun convertPokemonCommonSpriteDBToModel(pokemonCommonSpriteDB: PokemonCommonSpri
     }
 }
 
+fun convertPokemonCommonSpriteDBToModel(pokemonCommonSpriteDB: PokemonCommonSpriteDB, newObject: PokemonSprite): PokemonCommonSprite {
+    return newObject.apply {
+        this.backDefault = pokemonCommonSpriteDB.backDefault
+        this.backFemale = pokemonCommonSpriteDB.backFemale
+        this.backShiny = pokemonCommonSpriteDB.backShiny
+        this.backShinyFemale = pokemonCommonSpriteDB.backShinyFemale
+        this.frontDefault = pokemonCommonSpriteDB.frontDefault
+        this.frontFemale = pokemonCommonSpriteDB.frontFemale
+        this.frontShiny = pokemonCommonSpriteDB.frontShiny
+        this.frontShinyFemale = pokemonCommonSpriteDB.frontShinyFemale
+        this.backShinyTransparent = pokemonCommonSpriteDB.backShinyTransparent
+        this.backTransparent = pokemonCommonSpriteDB.backTransparent
+        this.frontShinyTransparent = pokemonCommonSpriteDB.frontShinyTransparent
+        this.frontTransparent = pokemonCommonSpriteDB.frontTransparent
+    }
+}
+
 fun convertPokemonSpriteDBToModel(pokemonSpriteDB: PokemonSpriteDB): PokemonSprite {
     return PokemonSprite().apply {
-        convertPokemonCommonSpriteDBToModel(pokemonSpriteDB)
+        convertPokemonCommonSpriteDBToModel(pokemonSpriteDB, this)
         this.other = convertPokemonSpriteOtherDBToModel(pokemonSpriteDB.other)
     }
 }

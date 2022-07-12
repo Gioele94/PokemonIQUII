@@ -2,4 +2,72 @@
 
     <dimen name="padding">10dp</dimen>
 
+    <dimen name="text_size_xxxsmall">8sp</dimen>
+    <dimen name="text_size_xxsmall">10sp</dimen>
+    <dimen name="text_size_xsmall">12sp</dimen>
+    <dimen name="text_size_small">15sp</dimen>
+    <dimen name="text_size_normal">18sp</dimen>
+    <dimen name="text_size_medium">21sp</dimen>
+    <dimen name="text_size_large">23sp</dimen>
+    <dimen name="text_size_xlarge">25sp</dimen>
+    <dimen name="text_size_xxlarge">28sp</dimen>
+    <dimen name="text_size_xxxlarge">30sp</dimen>
+    <dimen name="text_size_huge">32sp</dimen>
+    <dimen name="text_size_xhuge">34sp</dimen>
+    <dimen name="text_size_xxhuge">36sp</dimen>
+    <dimen name="text_size_xxxhuge">38sp</dimen>
+
+    <!-- margin dimens -->
+
+    <dimen name="margin_xxxsmall">2dp</dimen>
+    <dimen name="margin_xxsmall">4dp</dimen>
+    <dimen name="margin_xsmall">6dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_normal">10dp</dimen>
+    <dimen name="margin_xnormal">12dp</dimen>
+    <dimen name="margin_xxnormal">14dp</dimen>
+    <dimen name="margin_xxxnormal">16dp</dimen>
+    <dimen name="margin_medium">18dp</dimen>
+    <dimen name="margin_xmedium">20dp</dimen>
+    <dimen name="margin_xxmedium">22dp</dimen>
+    <dimen name="margin_xxxmedium">24dp</dimen>
+    <dimen name="margin_large">26dp</dimen>
+    <dimen name="margin_xlarge">28dp</dimen>
+    <dimen name="margin_xxlarge">30dp</dimen>
+    <dimen name="margin_xxxlarge">32dp</dimen>
+    <dimen name="margin_big">34dp</dimen>
+    <dimen name="margin_xbig">36dp</dimen>
+    <dimen name="margin_xxbig">38dp</dimen>
+    <dimen name="margin_xxxbig">40dp</dimen>
+
+    <!-- end margin dimens -->
+
+    <!-- padding dimens -->
+
+    <dimen name="padding_xxxsmall">2dp</dimen>
+    <dimen name="padding_xxsmall">4dp</dimen>
+    <dimen name="padding_half_normal">5dp</dimen>
+    <dimen name="padding_xsmall">6dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_normal">10dp</dimen>
+    <dimen name="padding_xnormal">12dp</dimen>
+    <dimen name="padding_xxnormal">14dp</dimen>
+    <dimen name="padding_xxxnormal">16dp</dimen>
+    <dimen name="padding_medium">18dp</dimen>
+    <dimen name="padding_xmedium">20dp</dimen>
+    <dimen name="padding_xxmedium">22dp</dimen>
+    <dimen name="padding_xxxmedium">24dp</dimen>
+    <dimen name="padding_large">26dp</dimen>
+    <dimen name="padding_xlarge">28dp</dimen>
+    <dimen name="padding_xxlarge">30dp</dimen>
+    <dimen name="padding_xxxlarge">32dp</dimen>
+    <dimen name="padding_big">34dp</dimen>
+    <dimen name="padding_xbig">36dp</dimen>
+    <dimen name="padding_xxbig">38dp</dimen>
+    <dimen name="padding_xxxbig">40dp</dimen>
+
+    <!-- end padding dimens -->
+
+    <dimen name="radius_small">8dp</dimen>
+
 </resources>

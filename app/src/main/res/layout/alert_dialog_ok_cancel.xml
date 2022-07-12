@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="@color/primaryLight"
+    app:cardCornerRadius="@dimen/radius_small">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.pokemon.iquii.components.textview.PokemonIquiiTextView
+            android:id="@+id/titleHelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:lines="1"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:textColor="@color/primaryDark"
+            android:textSize="@dimen/text_size_normal"
+            font:layout_constraintEnd_toEndOf="parent"
+            font:layout_constraintStart_toStartOf="parent"
+            font:layout_constraintTop_toTopOf="parent"/>
+
+
+        <com.pokemon.iquii.components.textview.PokemonIquiiTextView
+            android:id="@+id/messageHelp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_medium"
+            android:textColor="@color/grey_700"
+            android:textSize="@dimen/text_size_small"
+            android:textStyle="bold"
+            font:layout_constraintEnd_toEndOf="parent"
+            font:layout_constraintHorizontal_bias="0.0"
+            font:layout_constraintStart_toStartOf="parent"
+            font:layout_constraintTop_toBottomOf="@+id/titleHelp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/messageHelp">
+
+            <com.pokemon.iquii.components.textview.PokemonIquiiTextView
+                android:id="@+id/close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:gravity="right"
+                android:paddingBottom="@dimen/padding_medium"
+                android:paddingLeft="@dimen/padding_normal"
+                android:paddingRight="@dimen/padding_normal"
+                android:textColor="@color/error"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="30dp" />
+
+            <com.pokemon.iquii.components.textview.PokemonIquiiTextView
+                android:id="@+id/ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingBottom="@dimen/padding_medium"
+                android:paddingLeft="@dimen/padding_normal"
+                android:paddingRight="@dimen/padding_normal"
+                android:textColor="@color/grey_700"
+                android:textSize="@dimen/text_size_small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/close"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

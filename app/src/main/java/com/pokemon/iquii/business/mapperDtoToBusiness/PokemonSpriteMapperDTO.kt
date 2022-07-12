@@ -24,10 +24,30 @@ fun convertPokemonCommonSpriteDtoToModel(pokemonCommonSpriteDto: PokemonCommonSp
     }
 }
 
+fun convertPokemonCommonSpriteDtoToModel(
+    pokemonCommonSpriteDto: PokemonSpriteDTO,
+    currentNewObject: PokemonSprite
+): PokemonSprite {
+    return currentNewObject.apply {
+        this.backDefault = pokemonCommonSpriteDto.backDefault
+        this.backFemale = pokemonCommonSpriteDto.backFemale
+        this.backShiny = pokemonCommonSpriteDto.backShiny
+        this.backShinyFemale = pokemonCommonSpriteDto.backShinyFemale
+        this.frontDefault = pokemonCommonSpriteDto.frontDefault
+        this.frontFemale = pokemonCommonSpriteDto.frontFemale
+        this.frontShiny = pokemonCommonSpriteDto.frontShiny
+        this.frontShinyFemale = pokemonCommonSpriteDto.frontShinyFemale
+        this.backShinyTransparent = pokemonCommonSpriteDto.backShinyTransparent
+        this.backTransparent = pokemonCommonSpriteDto.backTransparent
+        this.frontShinyTransparent = pokemonCommonSpriteDto.frontShinyTransparent
+        this.frontTransparent = pokemonCommonSpriteDto.frontTransparent
+    }
+}
+
 fun convertPokemonSpriteDtoToModel(pokemonSpriteDto: PokemonSpriteDTO): PokemonSprite {
     return PokemonSprite().apply {
-       convertPokemonCommonSpriteDtoToModel(pokemonSpriteDto)
         this.other = convertPokemonSpriteOtherDtoToModel(pokemonSpriteDto.other)
+        convertPokemonCommonSpriteDtoToModel(pokemonSpriteDto, this)
     }
 }
 
@@ -36,7 +56,8 @@ fun convertPokemonSpriteOtherDtoToModel(pokemonSpriteOtherDTO: PokemonSpriteOthe
     return PokemonSpriteOther().apply {
         this.dreamWorld = convertPokemonCommonSpriteDtoToModel(pokemonSpriteOtherDTO.dreamWorld)
         this.home = convertPokemonCommonSpriteDtoToModel(pokemonSpriteOtherDTO.home)
-        this.officialArtwork = convertPokemonCommonSpriteDtoToModel(pokemonSpriteOtherDTO.officialArtwork)
+        this.officialArtwork =
+            convertPokemonCommonSpriteDtoToModel(pokemonSpriteOtherDTO.officialArtwork)
         this.versions = convertPokemonSpriteGenerationDtoToModel(pokemonSpriteOtherDTO.versions)
     }
 }

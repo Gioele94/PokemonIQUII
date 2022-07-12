@@ -3,6 +3,10 @@ package com.pokemon.iquii.business.mapperDtoToBusiness
 import com.pokemon.iquii.business.models.Pokemon
 import com.pokemoniquiiSdk.services.pokemoncall.response.models.PokemonDTO
 
+fun convertPokemonDtoListToModel(list: List<PokemonDTO>): List<Pokemon> {
+    return list.map { convertPokemonDtoToModel(it) }
+}
+
 fun convertPokemonDtoToModel(pokemonDTO: PokemonDTO): Pokemon {
     return Pokemon().apply {
         this.baseExperience = pokemonDTO.baseExperience

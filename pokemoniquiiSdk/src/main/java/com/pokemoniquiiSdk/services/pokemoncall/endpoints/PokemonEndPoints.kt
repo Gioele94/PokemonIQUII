@@ -17,7 +17,7 @@ interface PokemonEndPoints {
     ): Single<PokemonResponseList>
 
     @GET("pokemon/{pokemonId}")
-    fun getPokemonDetail(@Path("pokemonId") pokemonId: Int): Single<PokemonResponseItem>
+    fun getPokemonDetail(@Path("pokemonId") pokemonId: String): Single<PokemonResponseItem>
 
     /*
     @GET("pokemon/{pokemonAbilityId}")

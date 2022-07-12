@@ -1,0 +1,3 @@
+package com.pokemon.iquii.components.viewmodel
+
+interface ViewModelActionListener

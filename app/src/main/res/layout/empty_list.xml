@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:font="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="emptyListViewModel"
+            type="com.pokemon.iquii.components.emptylist.viewmodel.EmptyListViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/no_passes_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerEmptyListBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            bind:layout_constraintTop_toTopOf="parent"
+            font:layout_constraintBottom_toBottomOf="parent"
+            font:layout_constraintEnd_toEndOf="parent"
+            font:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/pokemon_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_pokemon_logo"
+                bind:layout_constraintTop_toTopOf="parent"
+                font:layout_constraintEnd_toEndOf="parent"
+                font:layout_constraintStart_toStartOf="parent" />
+
+            <com.pokemon.iquii.components.textview.PokemonIquiiTextView
+                android:id="@+id/descriptionLoading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pokemon_logo"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@{emptyListViewModel.labelDescription}"
+                android:textColor="@color/grey_700"
+                android:textSize="@dimen/text_size_normal"
+                font:layout_constraintEnd_toEndOf="parent"
+                font:layout_constraintStart_toStartOf="parent"
+                font:layout_constraintTop_toBottomOf="@+id/pokemon_logo"
+                tools:text="@string/emptyList" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -3,6 +3,10 @@ package com.pokemon.iquii.business.mapperBusinessToDB
 import com.pokemon.iquii.business.models.Pokemon
 import com.pokemon.iquii.database.model.PokemonDB
 
+fun convertPokemonModelListToDB(list: List<Pokemon>): List<PokemonDB> {
+    return list.map { convertPokemonModelToDB(it) }
+}
+
 fun convertPokemonModelToDB(pokemon: Pokemon): PokemonDB {
     return PokemonDB().apply {
         this.baseExperience = pokemon.baseExperience

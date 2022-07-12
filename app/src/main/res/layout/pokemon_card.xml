@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="viewModel"
+            type="com.pokemon.iquii.activities.pokemons.viewmodel.PokemonCardViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{viewModel.pokemonClickListener}"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        android:focusable="true"
+        android:clickable="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/containerIntoCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_xxxnormal"
+                android:background="@color/primaryLight">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/imagePokemon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="16dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        fresco:fadeDuration="10"
+                        app:imageUrl="@{viewModel.imageUrl}"
+                        fresco:failureImage="@drawable/ic_pokemon_logo"
+                        fresco:failureImageScaleType="centerCrop"
+                        fresco:placeholderImage="@drawable/ic_pokemon_logo"
+                        fresco:placeholderImageScaleType="centerCrop"
+                        fresco:progressBarAutoRotateInterval="1000"
+                        fresco:progressBarImage="@drawable/progress_bar_custom"
+                        fresco:progressBarImageScaleType="centerInside"
+                        fresco:roundAsCircle="true"
+                        fresco:roundingBorderColor="@color/primaryLight"
+                        fresco:roundingBorderWidth="2dp" />
+
+                <com.pokemon.iquii.components.textview.PokemonIquiiTextView
+                    android:id="@+id/titleItem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="@{viewModel.message}"
+                    android:textColor="@color/secondaryDark"
+                    android:textSize="@dimen/text_size_small"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imagePokemon"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="pokemonName" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

@@ -19,7 +19,7 @@ class PokemonCallService : PokemonIQUIIService<PokemonEndPoints>(), PokemonCallS
         ).intercept()
     }
 
-    override fun getPokemonDetail(pokemonId: Int): Single<PokemonResponseItem> {
+    override fun getPokemonDetail(pokemonId: String): Single<PokemonResponseItem> {
         return PokemonSessionManager.executeRequest(
             getService(PokemonEndPoints::class.java).getPokemonDetail(pokemonId)
         ).intercept()

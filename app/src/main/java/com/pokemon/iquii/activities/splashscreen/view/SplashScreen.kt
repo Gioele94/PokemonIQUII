@@ -14,7 +14,7 @@ package com.pokemon.iquii.activities.splashscreen.view
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import com.pokemon.iquii.MainActivity
+import com.pokemon.iquii.activities.tabs.PokemonIquiiTabs
 import timber.log.Timber
 
 class SplashScreen : Activity() {
@@ -25,7 +25,7 @@ class SplashScreen : Activity() {
     }
 
     private fun start() {
-        val intent: Intent = Intent(this@SplashScreen, MainActivity::class.java)
+        val intent: Intent = Intent(this@SplashScreen, PokemonIquiiTabs::class.java)
         if (intent != null) {
             startActivity(intent)
             finish()
