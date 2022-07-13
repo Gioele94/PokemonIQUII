@@ -35,11 +35,13 @@ abstract class PokemonIquiiCommonAdapter<T>(diffUtilCallback : DiffUtil.ItemCall
 
     abstract var reloadListener: ReloadListener?
     var dataSet: MutableLiveData<MutableList<Any?>> = MutableLiveData()
+    var copyOfDataSet: MutableLiveData<MutableList<Any?>> = MutableLiveData()
     var dataSetFromDB: MutableLiveData<MutableList<PokemonDB>?> = MutableLiveData()
     private var lastAnimatedPosition: Int = -1
 
     init {
         dataSet.value = emptyList<Any?>().toMutableList()
+        copyOfDataSet.value = emptyList<Any?>().toMutableList()
         dataSetFromDB.value = emptyList<PokemonDB>().toMutableList()
     }
 
@@ -54,6 +56,7 @@ abstract class PokemonIquiiCommonAdapter<T>(diffUtilCallback : DiffUtil.ItemCall
     abstract fun onBindViewHolderCustom(holder: RecyclerView.ViewHolder, position: Int)
     abstract fun setEmptyListVIewModelNoItems() : EmptyListViewModel?
     abstract fun loadingDataFirstTimeViewModel() : LoadDataFirstTime?
+    abstract fun filteredDataSetByQuery(query: String?)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {

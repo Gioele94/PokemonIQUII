@@ -6,10 +6,13 @@ import android.content.*
 import android.content.res.Configuration
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -26,14 +29,11 @@ import timber.log.Timber.d
 import timber.log.Timber.w
 import java.util.*
 
+
 abstract class PokemonIquiiActivity : AppCompatActivity(), PokemonIquiiGenericFragmentListener {
 
     private var progressDialog: ProgressDialog? = null
-    private var alertDialog: AlertDialog? = null
     open val activityTitle: String? = PokemonIQUIILocalizer.get(R.string.app_name, PokemonIQUIIApplication.getStaticInstance().applicationContext)
-
-    private val rootView: View?
-        get() = findViewById(R.id.main)
 
     protected var toolbar: Toolbar? = null
     private var appBar: AppBarLayout? = null
@@ -44,6 +44,12 @@ abstract class PokemonIquiiActivity : AppCompatActivity(), PokemonIquiiGenericFr
     var toolbarShadow: View? = null
     val thread = Thread()
     var threadAlreadyRunning = false
+
+    interface ListenerSearch{
+        fun onSearchBar(find: String?)
+    }
+
+    abstract val listenerSearch: ListenerSearch?
 
     override fun onInternetNetworkError() {
         showDialogOk(R.string.generic_error, R.string.generic_errorNetwork, null)
@@ -173,11 +179,6 @@ abstract class PokemonIquiiActivity : AppCompatActivity(), PokemonIquiiGenericFr
             hideToolBarShadow()
             return
         }
-    }
-
-    fun showToolBar() {
-        toolbar?.let { it.visibility = View.VISIBLE }
-        showToolBarShadow()
     }
 
     private fun hasParentActivity(): Boolean {
@@ -346,6 +347,25 @@ abstract class PokemonIquiiActivity : AppCompatActivity(), PokemonIquiiGenericFr
         }
         val fragment = genericFragments[count - 1]
         fragment.runGoBack()
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.search_bar, menu)
+        val searchItem: MenuItem = menu.findItem(R.id.actionSearch)
+        val searchView: SearchView = searchItem.actionView as SearchView
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                listenerSearch?.onSearchBar(newText)
+                return false
+            }
+        })
+        return true
     }
 
 

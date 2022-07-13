@@ -69,6 +69,36 @@ class PokemonsFavoriteListAdapter :
         return PokemonCardViewHolder(binding)
     }
 
+    override fun filteredDataSetByQuery(query: String?) {
+        if (copyOfDataSet.value?.isEmpty() == true) {
+            copyOfDataSet.value?.addAll(dataSet.value ?: emptyList())
+        }
+        synchronized(dataSet) {
+            if (query.isNullOrEmpty()) {
+                if (copyOfDataSet.value?.isEmpty() == true) {
+                    return
+                } else {
+                    clear()
+                    dataSet.value?.addAll(copyOfDataSet.value ?: emptyList())
+                    notifyItemRangeChanged(0, getItemCountCustom())
+                    copyOfDataSet.value?.clear()
+                }
+            } else {
+                val listFiltered =
+                    copyOfDataSet.value?.filter {
+                        (it as? Pokemon)?.name?.contains(
+                            query,
+                            ignoreCase = true
+                        ) ?: false
+                    }
+                        ?: emptyList()
+                clear()
+                dataSet.value?.addAll(listFiltered)
+                notifyItemRangeChanged(0, getItemCountCustom())
+            }
+        }
+    }
+
     override fun updateItemIntoDBByItem(item: Any) {
         PokemonFavoriteRepository().update(convertPokemonModelToDB(item as Pokemon, true))
     }

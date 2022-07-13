@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.pokemon.iquii.BR
 import com.pokemon.iquii.activities.pokemons.viewmodel.PokemonCardViewModel
+import com.pokemon.iquii.activities.pokemons.viewmodel.PokemonsListViewModel
 import com.pokemon.iquii.business.mapperBusinessToDB.convertPokemonModelToDB
 import com.pokemon.iquii.business.mapperDbToBusiness.convertPokemonDBListToModel
 import com.pokemon.iquii.business.models.Pokemon
@@ -146,6 +147,36 @@ class PokemonsListAdapter :
                 }
             }
             notifyItemRangeChanged(0, itemCount)
+        }
+    }
+
+    override fun filteredDataSetByQuery(query: String?) {
+        if (copyOfDataSet.value?.isEmpty() == true) {
+            copyOfDataSet.value?.addAll(dataSet.value ?: emptyList())
+        }
+        synchronized(dataSet) {
+            if (query.isNullOrEmpty()) {
+                if (copyOfDataSet.value?.isEmpty() == true) {
+                    return
+                } else {
+                    clear()
+                    dataSet.value?.addAll(copyOfDataSet.value ?: emptyList())
+                    notifyItemRangeChanged(0, getItemCountCustom())
+                    copyOfDataSet.value?.clear()
+                }
+            } else {
+                val listFiltered =
+                    copyOfDataSet.value?.filter {
+                        (it as? Pokemon)?.name?.contains(
+                            query,
+                            ignoreCase = true
+                        ) ?: false
+                    }
+                        ?: emptyList()
+                clear()
+                dataSet.value?.addAll(listFiltered)
+                notifyItemRangeChanged(0, getItemCountCustom())
+            }
         }
     }
 

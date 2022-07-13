@@ -29,5 +29,8 @@ open class AnimationActivity : PokemonIquiiActivity(){
         overridePendingTransition(R.anim.slide_from_left, R.anim.slide_to_right)
     }
 
+    override val listenerSearch: ListenerSearch?
+        get() = null
+
 }
 

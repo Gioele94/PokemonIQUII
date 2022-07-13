@@ -20,6 +20,25 @@ class PokemonIquiiTabs : PokemonIquiiActivity(),
     lateinit var viewPager: ViewPager
     lateinit var labelToolbar: TextView
 
+    override val listenerSearch: ListenerSearch?
+        get() = object : ListenerSearch {
+
+            override fun onSearchBar(find: String?) {
+                when (viewPager.currentItem) {
+                    0 -> {
+                        ((viewPager.adapter as PokemonIquiiTabsAdapter).getItem(0) as PokemonsGallery).viewModel.adapter?.filteredDataSetByQuery(
+                            find
+                        )
+                    }
+                    1 -> {
+                        ((viewPager.adapter as PokemonIquiiTabsAdapter).getItem(1) as PokemonsFavoriteGallery).viewModel.adapter?.filteredDataSetByQuery(
+                            find
+                        )
+                    }
+                }
+            }
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
