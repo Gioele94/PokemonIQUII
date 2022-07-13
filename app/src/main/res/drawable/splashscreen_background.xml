@@ -3,10 +3,9 @@
 
     <item
         android:drawable="@color/white"/>
-
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@drawable/ic_splashscreen"/>
+            android:src="@drawable/gotta_catch_em_all"/>
     </item>
 </layer-list>
