@@ -87,7 +87,7 @@ class PokemonsListAdapter :
     override fun onBindViewHolderCustom(holder: RecyclerView.ViewHolder, position: Int) {
         synchronized(dataSet) {
             if (holder is PokemonCardViewHolder) {
-                bindNotificationCard(holder, position)
+                bindPokemonCard(holder, position)
             }
         }
     }
@@ -96,7 +96,7 @@ class PokemonsListAdapter :
         return EmptyListViewModel()
     }
 
-    private fun bindNotificationCard(holder: PokemonCardViewHolder, position: Int) {
+    private fun bindPokemonCard(holder: PokemonCardViewHolder, position: Int) {
         val currentNotification = dataSet.value?.let { it[position] } as? Pokemon
         val viewModel =
             currentNotification?.let { PokemonCardViewModel(it, holder.itemView.context) }

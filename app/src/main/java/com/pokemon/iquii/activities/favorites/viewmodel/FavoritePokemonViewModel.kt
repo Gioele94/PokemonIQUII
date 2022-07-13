@@ -52,7 +52,7 @@ class FavoritePokemonViewModel(
         deleteItemIntoDB: Boolean
     ) {
         adapter?.setNetworkError(false)
-        adapter?.setLoadingItemsFirstTime(true)
+        adapter?.setLoadingItemsFirstTime(false)
         val listDB = adapter?.getItemsFromDB() ?: emptyList<PokemonDB>()
         adapter?.addItemsFromDB(listDB, PokemonIquiiCommonAdapter.RemoveLoader.YES, clearDataSet)
         actionListener?.showSwipeRefreshLayout()

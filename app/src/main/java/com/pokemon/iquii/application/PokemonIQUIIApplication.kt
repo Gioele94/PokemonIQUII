@@ -69,6 +69,7 @@ open class PokemonIQUIIApplication : MultiDexApplication() {
         super.onCreate()
 
         settings = Settings(this)
+        storeStaticInstance(this)
         PokemonIQUIILocalizer.setup(object : PokemonIQUIILocalizer.Delegate{
             override fun get(): PokemonIQUIILocalizer.Strings? {
                 return null
