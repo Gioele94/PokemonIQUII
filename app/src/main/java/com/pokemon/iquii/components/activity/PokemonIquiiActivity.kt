@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.appbar.AppBarLayout
 import com.pokemon.iquii.R
+import com.pokemon.iquii.application.PokemonIQUIIApplication
 import com.pokemon.iquii.components.actionlistener.PokemonIquiiGenericFragmentListener
 import com.pokemon.iquii.components.fragment.PokemonIquiiGenericFragment
 import com.pokemon.iquii.components.progressdialog.ProgressDialog
@@ -29,7 +30,7 @@ abstract class PokemonIquiiActivity : AppCompatActivity(), PokemonIquiiGenericFr
 
     private var progressDialog: ProgressDialog? = null
     private var alertDialog: AlertDialog? = null
-    open val activityTitle: String? = null
+    open val activityTitle: String? = PokemonIQUIILocalizer.get(R.string.app_name, PokemonIQUIIApplication.getStaticInstance().applicationContext)
 
     private val rootView: View?
         get() = findViewById(R.id.main)
