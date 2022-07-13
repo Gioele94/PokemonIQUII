@@ -4,7 +4,7 @@ import androidx.annotation.NonNull
 import androidx.recyclerview.widget.DiffUtil
 import java.io.Serializable
 
-open class Pokemon: Serializable {
+open class Pokemon : Serializable {
 
     var baseExperience: Int = 0
     var isDefault = false
@@ -42,6 +42,16 @@ open class Pokemon: Serializable {
                 return oldItem
             }
         }
+    }
+
+    override fun equals(other: Any?): Boolean {
+        if (other !is Pokemon) {
+            return false
+        }
+        val that = other as Pokemon?
+        that?.let { otherPokemon ->
+            return this.id == otherPokemon.id
+        } ?: return false
     }
 
 }

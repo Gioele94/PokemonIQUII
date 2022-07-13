@@ -1,5 +1,6 @@
 package com.pokemon.iquii.activities.pokemons.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -37,6 +38,12 @@ class PokemonsGallery : PokemonIquiiListFragment<PokemonsGallery>(), PokemonsLis
             PokemonFavoriteRepository().insert(convertPokemonModelToDB(pokemon, true))
         }
         viewModelCard.notifyChange()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onResume() {
+        super.onResume()
+        viewModel.adapter?.notifyDataSetChanged()
     }
 
     companion object {
