@@ -1,13 +1,6 @@
 package com.pokemon.iquii.localizer;
 
-import static android.os.Build.VERSION_CODES.N;
-
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.os.Build;
-import android.os.LocaleList;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -188,41 +181,6 @@ public class PokemonIQUIILocalizer {
             }
         }
     }
-
-    public ContextWrapper updateStringLocal(Context context, Locale newLocale) {
-        if (newLocale != null) {
-            Locale.setDefault(newLocale);
-            if (delegate != null) {
-                delegate.saveLocale(newLocale.toLanguageTag());
-            }
-
-            Resources res = context.getResources();
-            Configuration configuration = new Configuration(res.getConfiguration());
-
-            if (Build.VERSION.SDK_INT >= N) {
-                configuration.setLocale(newLocale);
-                LocaleList localeList = new LocaleList(newLocale);
-                LocaleList.setDefault(localeList);
-                configuration.setLocales(localeList);
-                context = context.createConfigurationContext(configuration);
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                configuration.setLocale(newLocale);
-                context = context.createConfigurationContext(configuration);
-            } else {
-                configuration.locale = newLocale;
-                res.updateConfiguration(configuration, res.getDisplayMetrics());
-            }
-        }
-
-        return new ContextWrapper(context);
-
-    }
-
-    public void clear() {
-        cache = null;
-        if (delegate != null) delegate.save(null);
-    }
-
 
     public enum UpdateForced {
         YES,

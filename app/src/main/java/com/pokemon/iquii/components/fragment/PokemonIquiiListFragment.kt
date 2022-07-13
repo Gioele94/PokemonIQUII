@@ -110,8 +110,6 @@ abstract class PokemonIquiiListFragment<T> : PokemonIquiiGenericFragment(), Poke
         viewModel?.loadItem(clearDataSet = true, getItemsFirstTime = true, deleteItemIntoDB = true)
     }
 
-    abstract fun forceCloseMenuSwupe(view: View)
-
     override fun onItemFetched() {
         binding?.swipeContainer?.isRefreshing = false
     }

@@ -1,5 +1,9 @@
 package com.pokemon.iquii.components.binding
 
+import android.view.View
+import android.widget.ImageView
+import androidx.annotation.ColorRes
+import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.BindingAdapter
 import com.facebook.drawee.view.SimpleDraweeView
 import timber.log.Timber
@@ -15,4 +19,15 @@ fun loadImage(view: SimpleDraweeView, imageUrl: String?) {
             Timber.d("bad url image %s", e.message)
         }
     }
+}
+
+@BindingAdapter("app:setColorFilter")
+fun setColorFilter(v: ImageView, @ColorRes color : Int) {
+    v.setColorFilter(ResourcesCompat.getColor(v.context.resources, color, null))
+}
+
+@BindingAdapter("app:onClick")
+fun onClick(v : View, onClickListener: View.OnClickListener){
+    v.setOnClickListener { onClickListener.onClick(v)
+        return@setOnClickListener}
 }

@@ -7,6 +7,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pokemon.iquii.R
+import com.pokemon.iquii.activities.favorites.view.PokemonsFavoriteGallery
 import com.pokemon.iquii.activities.pokemons.view.PokemonsGallery
 import com.pokemon.iquii.activities.tabs.adapter.PokemonIquiiTabsAdapter
 import com.pokemon.iquii.components.activity.PokemonIquiiActivity
@@ -85,7 +86,7 @@ class PokemonIquiiTabs : PokemonIquiiActivity(),
     private fun setupViewPager(viewPager: ViewPager) {
         val adapter = PokemonIquiiTabsAdapter(supportFragmentManager)
         adapter.addFragment(PokemonsGallery.newInstance())
-        adapter.addFragment(PokemonsGallery.newInstance())
+        adapter.addFragment(PokemonsFavoriteGallery.newInstance())
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 2
         viewPager.post { onPageSelected(viewPager.currentItem) }

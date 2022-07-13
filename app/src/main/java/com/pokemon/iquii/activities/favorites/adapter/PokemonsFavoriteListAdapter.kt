@@ -1,4 +1,4 @@
-package com.pokemon.iquii.activities.pokemons.adapter
+package com.pokemon.iquii.activities.favorites.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -14,12 +14,12 @@ import com.pokemon.iquii.components.adapter.PokemonIquiiCommonAdapterWithDbOpera
 import com.pokemon.iquii.components.emptylist.viewmodel.EmptyListViewModel
 import com.pokemon.iquii.components.loadingdatafirsttime.viewmodel.LoadDataFirstTime
 import com.pokemon.iquii.database.model.PokemonDB
-import com.pokemon.iquii.database.repository.pokemon.PokemonRepository
+import com.pokemon.iquii.database.repository.pokemon.PokemonFavoriteRepository
 import com.pokemon.iquii.databinding.PokemonCardBinding
 
 
-class PokemonsListAdapter :
-    PokemonIquiiCommonAdapterWithDbOperation<PokemonsListAdapter>(Pokemon.DIFF_CALLBACK) {
+class PokemonsFavoriteListAdapter :
+    PokemonIquiiCommonAdapterWithDbOperation<PokemonsFavoriteListAdapter>(Pokemon.DIFF_CALLBACK) {
 
     var listener: PokemonCardViewModel.Listener? = null
     override var reloadListener: ReloadListener? = null
@@ -31,7 +31,7 @@ class PokemonsListAdapter :
     override fun removeItemByItem(item: Any) {
         synchronized(dataSet) {
             dataSet.value?.remove(item as Pokemon)
-            PokemonRepository().delete(convertPokemonModelToDB(item as Pokemon))
+            PokemonFavoriteRepository().delete(convertPokemonModelToDB(item as Pokemon, true))
             notifyItemRangeChanged(0, itemCount)
         }
     }
@@ -53,11 +53,11 @@ class PokemonsListAdapter :
     }
 
     override fun getItemsFromDB(): List<PokemonDB>? {
-        return PokemonRepository().getAllPokemons()
+        return PokemonFavoriteRepository().getAllPokemons()
     }
 
     override fun getItemsFromDBLiveData(): LiveData<out List<*>?>? {
-        return PokemonRepository().getAllPokemonsLiveData()
+        return PokemonFavoriteRepository().getAllPokemonsLiveData()
     }
 
     override fun initItemCardViewHolder(parent: ViewGroup): RecyclerView.ViewHolder {
@@ -70,7 +70,7 @@ class PokemonsListAdapter :
     }
 
     override fun updateItemIntoDBByItem(item: Any) {
-        PokemonRepository().update(convertPokemonModelToDB(item as Pokemon))
+        PokemonFavoriteRepository().update(convertPokemonModelToDB(item as Pokemon, true))
     }
 
     override fun updateItemByItem(item: Any?, updateItemIntoDB: Boolean) {

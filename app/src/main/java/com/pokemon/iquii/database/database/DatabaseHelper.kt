@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.pokemon.iquii.database.dao.PokemonDAO
+import com.pokemon.iquii.database.dao.PokemonFavoriteDAO
 
 class DatabaseHelper constructor(context: Context) {
 
@@ -25,6 +26,10 @@ class DatabaseHelper constructor(context: Context) {
 
     fun getPokemonDao(): PokemonDAO? {
         return appDb?.pokemonDao()
+    }
+
+    fun getPokemonFavorite(): PokemonFavoriteDAO? {
+        return appDb?.pokemonFavoriteDao()
     }
 
     companion object {

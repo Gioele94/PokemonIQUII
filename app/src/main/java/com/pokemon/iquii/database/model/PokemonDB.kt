@@ -1,11 +1,8 @@
 package com.pokemon.iquii.database.model
 
-import androidx.room.Entity
-import androidx.room.Index
 import androidx.room.PrimaryKey
 import java.io.Serializable
 
-@Entity(tableName = "pokemon", indices = [Index(value = ["id"], unique = true)])
 open class PokemonDB : Serializable {
 
     var baseExperience: Int = 0
