@@ -23,6 +23,7 @@ abstract class PokemonIquiiListFragment<T> : PokemonIquiiGenericFragment(), Poke
     var binding: CommonListFragmentBinding? = null
     abstract val viewModel: CommonListViewModel<*>?
     abstract val showLineDivide: Boolean
+    abstract val removeItemDecoration: Boolean
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -55,10 +56,11 @@ abstract class PokemonIquiiListFragment<T> : PokemonIquiiGenericFragment(), Poke
         binding?.recyclerView?.layoutManager = layoutManager
         if (showLineDivide) {
             activity?.let {
+
                 binding?.recyclerView?.addItemDecoration(
                     DividerItemDecoration(
                         it,
-                        LinearLayoutManager.VERTICAL
+                        if(removeItemDecoration) 0 else LinearLayoutManager.VERTICAL
                     )
                 )
             }

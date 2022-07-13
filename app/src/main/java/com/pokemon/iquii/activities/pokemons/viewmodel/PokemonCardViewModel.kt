@@ -19,8 +19,14 @@ open class PokemonCardViewModel(private val pokemon: Pokemon, private val contex
     var listener: Listener? = null
 
     @Bindable
-    fun getMessage(): SpannableStringBuilder? {
+    fun getNamePokemon(): SpannableStringBuilder? {
         return SpannableStringBuilder(pokemon.name)
+
+    }
+
+    @Bindable
+    fun getIdPokemon(): String {
+        return "#" + pokemon.id
 
     }
 

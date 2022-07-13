@@ -16,6 +16,8 @@ class PokemonsFavoriteGallery : PokemonIquiiListFragment<PokemonsFavoriteGallery
 
     override val showLineDivide: Boolean = true
 
+    override val removeItemDecoration: Boolean = true
+
     override fun onReloadCLicked() {}
 
     override fun onPokemonClicked(view: View, pokemon: Pokemon) {
