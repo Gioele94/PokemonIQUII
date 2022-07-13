@@ -8,8 +8,6 @@
 
         <import type="android.view.View" />
 
-        <import type="android.text.Html" />
-
         <variable
             name="viewModel"
             type="com.pokemon.iquii.activities.pokemons.viewmodel.PokemonCardViewModel" />

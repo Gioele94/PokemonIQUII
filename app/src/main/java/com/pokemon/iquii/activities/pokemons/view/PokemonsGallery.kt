@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.LinearLayout
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.pokemon.iquii.R
+import com.pokemon.iquii.activities.pokemonDetails.view.PokemonDetailsDialog
 import com.pokemon.iquii.activities.pokemons.actionlistener.PokemonsListActionListener
 import com.pokemon.iquii.activities.pokemons.viewmodel.PokemonCardViewModel
 import com.pokemon.iquii.activities.pokemons.viewmodel.PokemonsListViewModel
@@ -11,6 +15,7 @@ import com.pokemon.iquii.business.mapperBusinessToDB.convertPokemonModelToDB
 import com.pokemon.iquii.business.models.Pokemon
 import com.pokemon.iquii.components.fragment.PokemonIquiiListFragment
 import com.pokemon.iquii.database.repository.pokemon.PokemonFavoriteRepository
+
 
 class PokemonsGallery : PokemonIquiiListFragment<PokemonsGallery>(), PokemonsListActionListener {
 
@@ -23,6 +28,7 @@ class PokemonsGallery : PokemonIquiiListFragment<PokemonsGallery>(), PokemonsLis
     override fun onReloadCLicked() {}
 
     override fun onPokemonClicked(view: View, pokemon: Pokemon) {
+        showBottomSheetDialog(pokemon)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -40,6 +46,11 @@ class PokemonsGallery : PokemonIquiiListFragment<PokemonsGallery>(), PokemonsLis
             PokemonFavoriteRepository().insert(convertPokemonModelToDB(pokemon, true))
         }
         viewModelCard.notifyChange()
+    }
+
+    private fun showBottomSheetDialog(pokemon: Pokemon) {
+        val bottomSheetDialog = activity?.let { PokemonDetailsDialog.newInstance(pokemon.id) }
+        bottomSheetDialog?.show(childFragmentManager, "")
     }
 
     @SuppressLint("NotifyDataSetChanged")
