@@ -50,7 +50,7 @@ class PokemonsGallery : PokemonIquiiListFragment<PokemonsGallery>(), PokemonsLis
 
     private fun showBottomSheetDialog(pokemon: Pokemon) {
         val bottomSheetDialog = activity?.let { PokemonDetailsDialog.newInstance(pokemon.id) }
-        bottomSheetDialog?.show(childFragmentManager, "")
+        bottomSheetDialog?.show(childFragmentManager, PokemonDetailsDialog::class.java.name)
     }
 
     @SuppressLint("NotifyDataSetChanged")

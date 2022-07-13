@@ -65,6 +65,9 @@
     <dimen name="padding_xbig">36dp</dimen>
     <dimen name="padding_xxbig">38dp</dimen>
     <dimen name="padding_xxxbig">40dp</dimen>
+    <dimen name="padding_huge">50dp</dimen>
+    <dimen name="padding_xhuge">60dp</dimen>
+
 
     <!-- end padding dimens -->
 

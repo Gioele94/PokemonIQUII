@@ -7,5 +7,5 @@ class PokemonStatImplDTO {
     @SerializedName("base_stat")
     val baseStat: Int = 0
     val effort: Int = 0
-    val stat: PokemonCommonObjectDTO = PokemonCommonObjectDTO()
+    val stat: PokemonCommonStatDTO = PokemonCommonStatDTO()
 }

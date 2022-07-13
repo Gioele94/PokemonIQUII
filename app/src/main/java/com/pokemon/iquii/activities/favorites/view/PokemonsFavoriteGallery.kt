@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.pokemon.iquii.activities.favorites.viewmodel.FavoritePokemonViewModel
+import com.pokemon.iquii.activities.pokemonDetails.view.PokemonDetailsDialog
 import com.pokemon.iquii.activities.pokemons.actionlistener.PokemonsListActionListener
 import com.pokemon.iquii.activities.pokemons.viewmodel.PokemonCardViewModel
 import com.pokemon.iquii.business.models.Pokemon
@@ -21,7 +22,12 @@ class PokemonsFavoriteGallery : PokemonIquiiListFragment<PokemonsFavoriteGallery
     override fun onReloadCLicked() {}
 
     override fun onPokemonClicked(view: View, pokemon: Pokemon) {
+        showBottomSheetDialog(pokemon)
+    }
 
+    private fun showBottomSheetDialog(pokemon: Pokemon) {
+        val bottomSheetDialog = activity?.let { PokemonDetailsDialog.newInstance(pokemon.id) }
+        bottomSheetDialog?.show(childFragmentManager, PokemonDetailsDialog::class.java.name)
     }
 
     override fun onSetOrRemoveFavorite(

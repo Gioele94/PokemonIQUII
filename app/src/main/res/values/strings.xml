@@ -9,4 +9,17 @@
     <string name="generic.yes">Yes</string>
     <string name="pokemonTab.pokemons">Pokemons</string>
     <string name="pokemonTab.favourites">Favourites</string>
+    <string name="pokemonDetails.id">ID</string>
+    <string name="pokemonDetails.name">Name</string>
+    <string name="pokemonDetails.type">Type</string>
+    <string name="pokemonDetails.weight">Weight</string>
+    <string name="pokemonDetails.height">Height</string>
+    <string name="pokemonDetails.stats">Statistic</string>
+    <string name="pokemonDetails.hp">Hp</string>
+    <string name="pokemonDetails.attack">Attack</string>
+    <string name="pokemonDetails.defense">Defense</string>
+    <string name="pokemonDetails.specialAttack">Special-Attack</string>
+    <string name="pokemonDetails.specialDefense">Special-Defense</string>
+    <string name="pokemonDetails.speed">Speed</string>
+
 </resources>
