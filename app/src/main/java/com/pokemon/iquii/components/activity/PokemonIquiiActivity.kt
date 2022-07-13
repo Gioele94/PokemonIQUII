@@ -84,6 +84,7 @@ abstract class PokemonIquiiActivity : AppCompatActivity(), PokemonIquiiGenericFr
         } else {
             messageText.visibility = View.GONE
         }
+        closePopup.text = PokemonIQUIILocalizer.get(R.string.generic_close, this)
         closePopup.setOnClickListener {
             alertDialog?.dismiss()
             callback?.invoke()
